@@ -1,0 +1,40 @@
+﻿body {
+    /*background-image: url("haunted_forest_wallpaper_1920x1080.jpg");*/
+    background-image: url("haunted_forest_wallpaper_1920x1080.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: 'MS Gothic';
+    color: white;
+    /**/
+    /*background-color: white;
+    color: black;
+    font-family: 'MS Gothic';*/
+}
+
+.section__header-title {
+    text-align: center;
+    font-family: 'Frijole';
+    font-size: 300%;
+}
+
+.section__header {
+    text-align: center;
+    font-family: 'Frijole';
+    font-size: 200%;
+}
+
+.section_content {
+    text-align: center;
+    /*font-family: 'MS Gothic';*/
+    font-size: 125%;
+    font-weight: bold;
+}
+
+.btn {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
