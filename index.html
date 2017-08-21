@@ -1,6 +1,7 @@
 ﻿<! DOCTYPE html>
 <html ng-app="slayApp">
 <head>
+    <title>Sorority Slayers</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, intial-scale=1" />
     <!--<meta http-equiv="content-type" content="text/html;charset=utf-8" />-->
@@ -84,166 +85,63 @@
                 <p class="section_content">A selected group of sorority sisters hunt virgin men, smoke them and return the left overs to a demon acting as the school dean. The demon grants them a youthful appearance forever as long as he stays fed.</p>
             </div>
         </div>
-        <!-- content button group -->
-        <div class="btn-group btn-group-justified">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Episodes</button>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Cast & Crew</button>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">Behind The Scenes</button>
-            </div>
-        </div>
 
-        <!-- episodes -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="section__header">Episodes</h3>
-                <div class="media">
-                    <a href="#" class="pull-left">
-                        <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="media-heading">Episode 1</h3>
-                        <p>Using the .media and .media-body built-in classes</p>
-                        <p>Simple trick, just apply pull-left to the image</p>
+        <div class="tab" ng-controller="TabController as tab">
+            <ul class="nav nav-pills nav-justified">
+                <li ng-class="{ active: tab.isSet(1) }">
+                    <a href ng-click="tab.setTab(1)">Episodes</a>
+                </li>
+                <li ng-class="{ active: tab.isSet(2) }">
+                    <a href ng-click="tab.setTab(2)">Cast & Crew</a>
+                </li>
+                <li ng-class="{ active: tab.isSet(3) }">
+                    <a href ng-click="tab.setTab(3)">Behind The Scenes</a>
+                </li>
+            </ul>
+
+            <!-- episodes -->
+            <div class="row" ng-controller="EpisodeController as episode" ng-show="tab.isSet(1)">
+                <div class="col-md-12">
+                    <h3 class="section__header">Episodes</h3>
+                    <div class="media" ng-repeat="item in episode.items">
+                        <a href="#" class="pull-left">
+                            <img ng-src="{{item.image}}" class="media-object" alt="Sample Image">
+                        </a>
+                        <div class="media-body">
+                            <h3 class="media-heading">Episode {{item.episode}} - {{item.name}}</h3>
+                            <p>{{item.description}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="media">
-                    <a href="#" class="pull-left">
-                        <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="media-heading">Episode 2</h3>
-                        <p>Using the .media and .media-body built-in classes</p>
-                        <p>Simple trick, just apply pull-left to the image</p>
+            <!-- cast & crew -->
+            <div class="row" ng-controller="CastAndCrewController as cac" ng-show="tab.isSet(2)">
+                <div class="col-md-12">
+                    <h3 class="section__header">Cast & Crew</h3>
+                    <div class="media" ng-repeat="item in cac.items">
+                        <a href="#" class="pull-left">
+                            <img ng-src="{{item.image}}" class="media-object" alt="Sample Image">
+                        </a>
+                        <div class="media-body">
+                            <h3 class="media-heading">{{item.name}}, {{item.credit1}}, {{item.credit2}}</h3>
+                            <p>{{item.bio}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr />
-        <!-- cast & crew -->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="section__header">Cast & Crew</h3>
-                <div class="media">
-                    <a href="#" class="pull-left">
-                        <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="media-heading">Abraham Mu&#241oz, Writer, Director</h3>
-                        <p>Using the .media and .media-body built-in classes</p>
-                        <p>Simple trick, just apply pull-left to the image</p>
+            <!-- behind the scenes -->
+            <div class="row" ng-controller="BehindTheScenesController as bts" ng-show="tab.isSet(3)">
+                <h3 class="section__header">Behind The Scenes</h3>
+                <div class="col-md-3" ng-repeat="item in bts.items">
+                    <div class="thumbnail">
+                        <img ng-src="{{item.image}}" class="media-object" alt="Sample Image">
                     </div>
                 </div>
             </div>
+
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="media">
-                    <a href="#" class="pull-left">
-                        <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="media-heading">Rob Diaz, Writer, Director</h3>
-                        <p>Using the .media and .media-body built-in classes</p>
-                        <p>Simple trick, just apply pull-left to the image</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-md-12">
-                <div class="media">
-                    <a href="#" class="pull-left">
-                        <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="media-heading">Jane Doe, Actress</h3>
-                        <p>Using the .media and .media-body built-in classes</p>
-                        <p>Simple trick, just apply pull-left to the image</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <!-- behind the scenes -->
-        <div class="row">
-            <h3 class="section__header">Behind The Scenes</h3>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="thumbnail">
-                    <img src="images\vampire.jpg" class="media-object" alt="Sample Image">
-                </div>
-            </div>
-        </div>
+       
+      
         <!-- subscribe -->
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
