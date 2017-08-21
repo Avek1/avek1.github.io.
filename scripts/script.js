@@ -10,16 +10,12 @@
     var app = angular.module('slayApp', []);
     
     app.controller('SlayController', function () {
-        // is this where i would hard-code bios, episodes, bts?
-        // example below: gems
-        // dont' forget to use ng-repeat to display your chingaderas.
-        // i don't think i neeed this.
-        //alert("Angular biatch!");
+        alert("Angular biatch!");
 
     });
 
     app.controller('TabController', function () {
-        // refer to lesson 2.8
+        alert('Tab me, bitch!');
         this.tab = 1;
 
         this.setTab = function (newValue) {
@@ -30,14 +26,15 @@
             return this.tab === tabName;
         };
     });
-
+        
+    app.controller('EpisodeController', function () {
+        this.items = episodes;
+    })
     app.controller('CastAndCrewController', function () {
-        // refer to lesson 2.10
         this.items = castAndCrew;
     });
 
     app.controller('BehindTheScenesController', function () {
-        // refer to lesson 2.10
         this.items = behindTheScenes;
     });
 
