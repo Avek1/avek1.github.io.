@@ -10,12 +10,10 @@
     var app = angular.module('slayApp', []);
     
     app.controller('SlayController', function () {
-        alert("Angular biatch!");
 
     });
 
     app.controller('TabController', function () {
-        alert('Tab me, bitch!');
         this.tab = 1;
 
         this.setTab = function (newValue) {
