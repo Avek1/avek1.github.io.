@@ -20,7 +20,7 @@
 <body ng-controller="SlayController as slay">
     <!-- navbar start -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container-fluid" ng-controller="NavTabController as ntc">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
@@ -31,24 +31,25 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Trailer</a></li>
-                    <!--<li><a href="#">Series Description</a></li>-->
-                    <li><a href="#">Production Photos</a></li>
+                    <li class="active"><a href="#section-logo">Home</a></li>
+                    <li><a href="#section-trailer">Trailer</a></li>
+                    <li><a href="#section-episodes">Episodes</a></li><!-- episodes -->
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Crew<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cast & Crew<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Rob Diaz</a></li>
                             <li><a href="#">Abraham Mu&#241oz</a></li>
+                            <li><a href="#">Rob Diaz</a></li>
                             <li><a href="#">Jane Doe</a></li>
                         </ul>
                     </li>
+                    <li><a href="#section-behind-the-scenes">Behind The Scenes</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contact Us<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-film"></span> Subscribe</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-earphone"></span> Call</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Message</a></li>
+                            <li><a href="#section-subscribe"><span class="glyphicon glyphicon-film"></span> Subscribe</a></li>
+                            <li><a href="#section-message-us"><span class="glyphicon glyphicon-pencil"></span> Message</a></li>
+                            <li><a href="#section-call-us"><span class="glyphicon glyphicon-earphone"></span> Call</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -64,16 +65,12 @@
 
     <div class="container" style="margin-top:50px">
         <h2 class="section__header-title">Sorority Slayers</h2>
-        <h3 class="section_content">{{"This is Angular"}}</h3>
         <!-- embeded video -->
         <div class="row">
-            <div class="col-md-4">
-                <!--<img src="C:\SF.Code\Project_SororitySlayers\Images\sorority-slayers-logo.jpg" width="237" height="400" class="center-block"/>-->
-                <!--<img class="img-fluid center-block" src="C:\SF.Code\Project_SororitySlayers\Images\sorority-slayers-logo.jpg" alt="Chania" style="max-width: 70%; height: auto%;">-->
+            <div class="col-md-4" id="section-logo">
                 <img class="img-fluid center-block" src="images\sorority-slayers-logo.jpg" alt="Chania" style="max-width: 70%; height: auto%;">
-
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" id="section-trailer">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6x4rPxlB6-o"></iframe>
                 </div>
@@ -100,7 +97,7 @@
             </ul>
 
             <!-- episodes -->
-            <div class="row" ng-controller="EpisodeController as episode" ng-show="tab.isSet(1)">
+            <div class="row" id="section-episodes" ng-controller="EpisodeController as episode" ng-show="tab.isSet(1)">
                 <div class="col-md-12">
                     <h3 class="section__header">Episodes</h3>
                     <div class="media" ng-repeat="item in episode.items">
@@ -130,7 +127,7 @@
                 </div>
             </div>
             <!-- behind the scenes -->
-            <div class="row" ng-controller="BehindTheScenesController as bts" ng-show="tab.isSet(3)">
+            <div class="row" id="section-behind-the-scenes" ng-controller="BehindTheScenesController as bts" ng-show="tab.isSet(3)">
                 <h3 class="section__header">Behind The Scenes</h3>
                 <div class="col-md-3" ng-repeat="item in bts.items">
                     <div class="thumbnail">
@@ -143,7 +140,7 @@
        
       
         <!-- subscribe -->
-        <div class="row">
+        <div class="row" id="section-subscribe">
             <div class="col-md-8 col-md-offset-2">
                 <h3 class="section__header">Subscribe</h3>
                 <p class="section_content">Sign up to hear from us about new episodes.</p>
@@ -157,7 +154,7 @@
             </div>
         </div>
         <!-- message us -->
-        <div class="row">
+        <div class="row" id="section-message-us">
             <div class="col-md-8 col-md-offset-2">
                 <h3 class="section__header">Message us</h3>
                 <form>
@@ -181,11 +178,11 @@
             </div>
         </div>
         <!-- call us -->
-        <div class="row">
+        <div class="row" id="section-call-us">
             <div class="col-md-12">
                 <h3 class="section__header">Call us</h3>
 
-                <!--   <p class="section_content"><a href="tel:1-847-555-5555">(818) 853-4144</a></p>-->
+                <p class="section_content"><a href="tel:1-847-555-5555">(818) 853-4144</a></p>
                 <div class="text-center">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-earphone"></span> (818) 853-4144

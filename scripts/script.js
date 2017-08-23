@@ -1,16 +1,14 @@
-// JavaScript source code
-
-//$(document).ready(function () {
-//    console.log("Sorority Slayers!");
-//    alert("Sorority Cholas!");
-//});
 
 (function () {
 
     var app = angular.module('slayApp', []);
-    
-    app.controller('SlayController', function () {
 
+    app.controller('SlayController', function () {
+        //
+    });
+
+    app.controller('NavTabController', function () {
+        //
     });
 
     app.controller('TabController', function () {
@@ -24,7 +22,7 @@
             return this.tab === tabName;
         };
     });
-        
+
     app.controller('EpisodeController', function () {
         this.items = episodes;
     })
